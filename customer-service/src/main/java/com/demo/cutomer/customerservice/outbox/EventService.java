@@ -52,11 +52,6 @@ public class EventService {
         );
         log.info("Handling event : {}.", outboxEntity);
         outBoxRepository.save(outboxEntity);
-        /*
-         * Delete the event once written, so that the outbox doesn't grow.
-         * The CDC eventing polls the database log entry and not the table in the database.
-         */
-       // outBoxRepository.delete(outboxEntity);
 
     }
 }

@@ -9,7 +9,6 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.messaging.MessagingException;
 import org.springframework.stereotype.Service;
 
-import java.io.IOException;
 
 @Service
 public class KafKaConsumerService {
@@ -21,8 +20,7 @@ public class KafKaConsumerService {
 
     @KafkaListener(topics = AppConstants.TOPIC_NAME,
             groupId = AppConstants.GROUP_ID)
-    public void consume(String message)
-    {
+    public void consume(String message) {
         logger.info(String.format("Message recieved -> %s", message));
 
         System.out.println("Sending Email...");

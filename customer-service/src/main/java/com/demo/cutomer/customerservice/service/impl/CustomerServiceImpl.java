@@ -49,6 +49,7 @@ public class CustomerServiceImpl implements CustomerService {
         customerRepository.save(customerEntity);
 
         //publish the event
+        //same transaction seems like async
         eventPublisher.fire(EventUtils.saveCustomerEvent(customerEntity));
         return customerMapper.customerEntityToDTO(customerEntity);
     }
