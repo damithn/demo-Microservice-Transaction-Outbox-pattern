@@ -1,9 +1,13 @@
 package com.demo.cutomer.customerservice.dao.entity;
 
-import lombok.Data;
-import org.hibernate.annotations.GenericGenerator;
-
 import javax.persistence.*;
+
+import org.hibernate.annotations.GenericGenerator;
+import lombok.Data;
+
+/**
+ * Entity that maps the CUSTOMER table.
+ */
 
 @Data
 @Entity

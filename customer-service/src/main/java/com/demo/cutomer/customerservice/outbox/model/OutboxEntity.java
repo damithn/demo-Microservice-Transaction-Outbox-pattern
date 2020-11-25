@@ -1,15 +1,21 @@
 package com.demo.cutomer.customerservice.outbox.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.util.Date;
 import java.util.UUID;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+/**
+ * Entity that maps the Eventing OUTBOX table.
+ *
+ * @author Damith Samarakoon
+ */
 
 @Data
 @AllArgsConstructor

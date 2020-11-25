@@ -1,0 +1,5 @@
+Hello [(${fullName})],
+
+Customer For [(${authorFullName})] Changed.Please go check it out on :
+
+Cheers.

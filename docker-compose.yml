@@ -1,17 +1,27 @@
 version: "3.5"
 
 services:
-  # Install postgres and setup the student database.
-  mysql:
-    container_name: mysql
-    image: mysql:5.7
+  # mysql:
+  #   container_name: mysql
+  #   image: mysql:5.7
+  #   hostname: localhost
+  #   ports:
+  #      - 3307:3307
+  #   environment:
+  #      MYSQL_DATABASE: customerdb
+  #      MYSQL_USER: root
+  #      MYSQL_PASSWORD: root
+  #      MYSQL_ROOT_PASSWORD: root
+
+  postgres:
+    container_name: postgres
+    image: debezium/postgres
     ports:
-       - 3307:3307
+      - 5432:5432
     environment:
-       MYSQL_DATABASE: customerdb
-       MYSQL_USER: root
-       MYSQL_PASSWORD: root
-       MYSQL_ROOT_PASSWORD: root
+      - POSTGRES_DB=customerdb
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=damith
 
   # Install zookeeper. 
   zookeeper:
@@ -53,7 +63,8 @@ services:
       BOOTSTRAP_SERVERS: kafka:29092
     depends_on:
       - kafka
-      - mysql
+      - postgres
+      # - mysql
 
   # Build custom-debezium-connect. 
   create-topics:

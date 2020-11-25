@@ -1,8 +1,15 @@
 package com.demo.cutomer.customerservice.dto;
 
+import org.springframework.stereotype.Component;
 
 import com.demo.cutomer.customerservice.dao.entity.CustomerEntity;
-import org.springframework.stereotype.Component;
+
+/**
+ * This class maps the Entity object fetched from the DataBase and builds a Data Transfer Object (DTO), which will be
+ * the response from the REST API.
+ *
+ * @author Damith Samarakoon
+ */
 
 @Component
 public class CustomerMapper {

@@ -1,13 +1,13 @@
 package com.demo.connector;
 
+import java.util.Map;
+
 import org.apache.kafka.common.config.ConfigDef;
 import org.apache.kafka.connect.connector.ConnectRecord;
 import org.apache.kafka.connect.data.Schema;
 import org.apache.kafka.connect.data.Struct;
 import org.apache.kafka.connect.header.Headers;
 import org.apache.kafka.connect.transforms.Transformation;
-
-import java.util.Map;
 
 public class CustomTransformation <R extends ConnectRecord<R>> implements Transformation<R> {
 

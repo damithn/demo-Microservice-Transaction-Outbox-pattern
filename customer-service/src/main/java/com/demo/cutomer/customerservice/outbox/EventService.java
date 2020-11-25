@@ -1,18 +1,30 @@
 package com.demo.cutomer.customerservice.outbox;
 
-import com.demo.cutomer.customerservice.outbox.dao.OutBoxRepository;
-import com.demo.cutomer.customerservice.outbox.model.OutboxEntity;
-import com.demo.cutomer.customerservice.outbox.model.OutboxEvent;
+import java.util.Date;
+import java.util.UUID;
+
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
-import java.util.UUID;
+import com.demo.cutomer.customerservice.outbox.dao.OutBoxRepository;
+import com.demo.cutomer.customerservice.outbox.model.OutboxEntity;
+import com.demo.cutomer.customerservice.outbox.model.OutboxEvent;
+
+/**
+ * Event Service responsible for persisting the event in the database.
+ *
+ * @author Damith Samarakoon
+ */
 
 @Service
+@Slf4j
 public class EventService {
 
+    /**
+     * Handle to the Data Access Layer.
+     */
     @Autowired
     OutBoxRepository outBoxRepository;
 
@@ -21,6 +33,12 @@ public class EventService {
         this.outBoxRepository = outBoxRepository;
     }
 
+    /**
+     * This method handles all the events fired by the 'EventPublisher'. The method listens to events
+     * and persists them in the database.
+     *
+     * @param outboxEvent
+     */
     @EventListener
     public void handleOutboxEvent(OutboxEvent outboxEvent) {
 
@@ -32,6 +50,7 @@ public class EventService {
                 outboxEvent.getPayload().toString(),
                 new Date()
         );
+        log.info("Handling event : {}.", outboxEntity);
         outBoxRepository.save(outboxEntity);
         /*
          * Delete the event once written, so that the outbox doesn't grow.

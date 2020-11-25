@@ -2,8 +2,14 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/commons/commons.iml" filepath="$PROJECT_DIR$/commons/commons.iml" />
+      <module fileurl="file://$PROJECT_DIR$/config-local/config-local.iml" filepath="$PROJECT_DIR$/config-local/config-local.iml" />
+      <module fileurl="file://$PROJECT_DIR$/custom-kafka-debezium-connector/custom-kafka-debezium-connector.iml" filepath="$PROJECT_DIR$/custom-kafka-debezium-connector/custom-kafka-debezium-connector.iml" />
       <module fileurl="file://$PROJECT_DIR$/customer-service/customer-service.iml" filepath="$PROJECT_DIR$/customer-service/customer-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/demo-Microservice-Transaction-Outbox-pattern.iml" filepath="$PROJECT_DIR$/.idea/demo-Microservice-Transaction-Outbox-pattern.iml" />
+      <module fileurl="file://$PROJECT_DIR$/discovery-service/discovery-service.iml" filepath="$PROJECT_DIR$/discovery-service/discovery-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/kafka-consumer-service/kafka-consumer-service.iml" filepath="$PROJECT_DIR$/kafka-consumer-service/kafka-consumer-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/message-service/message-service.iml" filepath="$PROJECT_DIR$/message-service/message-service.iml" />
     </modules>
   </component>
 </project>

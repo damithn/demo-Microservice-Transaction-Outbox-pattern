@@ -8,6 +8,9 @@ import org.springframework.stereotype.Component;
 @Component
 public class EventPublisher implements ApplicationEventPublisherAware {
 
+    /**
+     * Instance of the publisher.
+     */
     private ApplicationEventPublisher publisher;
 
     @Override
@@ -15,6 +18,11 @@ public class EventPublisher implements ApplicationEventPublisherAware {
         this.publisher = applicationEventPublisher;
     }
 
+    /**
+     * This method publishes the event on to listeners configured by "@EventListener".
+     *
+     * @param outboxEvent
+     */
     public void fire(OutboxEvent outboxEvent) {
         this.publisher.publishEvent(outboxEvent);
     }
